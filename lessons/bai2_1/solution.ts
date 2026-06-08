@@ -1,15 +1,25 @@
 export class SmartContract {
-    private message: string;
+  private message: string;
 
-    constructor(initialMessage: string) {
-        // TODO: initialize the message with initialMessage
+  constructor(initialMessage: string) {
+    if (!initialMessage.trim()) {
+      throw new Error("Initial message cannot be empty");
     }
 
-    public updateMessage(newMsg: string): void {
-        // TODO: update the message with newMsg
-    }
+    this.message = initialMessage;
+  }
 
-    public getMessage(): string {
-        // TODO: return the current message
+  public updateMessage(newMsg: string): void {
+    if (!newMsg.trim()) {
+      throw new Error("New message cannot be empty");
     }
+    if (newMsg === this.message) {
+      throw new Error("New message must be different from the current message");
+    }
+    this.message = newMsg;
+  }
+
+  public getMessage(): string {
+    return this.message;
+  }
 }
