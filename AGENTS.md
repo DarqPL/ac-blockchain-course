@@ -3,8 +3,8 @@
 ## Rules
 
 - Always present options for the user to choose — never ask them to type free-form answers.
-- Only edit `solution.ts`. **Never modify `test.ts`**.
-- Never commit private keys, `.env` files, or secrets.
+- Only edit `solution.ts`. **Never modify** `test.ts`.
+- Never commit private keys, `.env` ~~files, or~~ secrets.
 - Before finishing any task: run `npx ts-node run.ts <lesson>` and confirm tests pass.
 - Keep code clean, follow TypeScript strict mode, and follow security best practices.
 
