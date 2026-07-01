@@ -5,7 +5,6 @@ import { SignerWithAddress } from "@nomicfoundation/hardhat-ethers/signers";
 import { Counter } from "../typechain";
 
 describe("Counter", function () {
-
   let deployer: SignerWithAddress,
     admin: SignerWithAddress,
     addr1: SignerWithAddress,
@@ -27,23 +26,19 @@ describe("Counter", function () {
     counter = await (await ethers.getContractFactory("Counter")).deploy();
   };
 
-
   before(async () => {
     console.log("Deploying Counter contract...");
     await deploy();
   });
 
   describe("Deployment", function () {
-
     it("Should set the initial count to 0", async function () {
       const count = await counter.getCount();
       expect(count).to.equal(0n);
     });
-
   });
 
   describe("Increment", function () {
-
     it("Should increment the count by 1", async function () {
       const tx = await counter.increment();
       await tx.wait();
@@ -51,6 +46,5 @@ describe("Counter", function () {
       const count = await counter.getCount();
       expect(count).to.equal(1n);
     });
-
   });
 });

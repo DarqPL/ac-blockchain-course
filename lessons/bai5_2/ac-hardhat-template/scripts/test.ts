@@ -1,7 +1,8 @@
-import { ethers } from "hardhat";
+import { ethers, deployments } from "hardhat";
 import { Counter } from "../typechain";
 
 async function main() {
+  await deployments.fixture(["deploy"]);
   const [deployer] = await ethers.getSigners();
   console.log("Deploying contracts with the account: ", deployer.address);
 
